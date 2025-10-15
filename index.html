@@ -22,26 +22,63 @@
     </header>
 
     <main id="main">
+        <!-- Dashbord Section -->
         <section id="dashboard" aria-labelledby="dashboard-heading">
             <h2 id="dashboard-heading">Dashboard</h2>
             <!-- Stats will go here -->
         </section>
 
+        <!-- Transaction Section -->
         <section id="records" aria-labelledby="records-heading">
             <h2 id="records-heading">Transactions</h2>
             <!-- Table or cards will go here -->
         </section>
 
+        <!-- This section is for Adding Transactions -->
         <section id="add" aria-labelledby="add-heading">
             <h2 id="add-heading">Add Transaction</h2>
-            <!-- Form will go here -->
+            <!-- Transaction Form -->
+             <form id="transaction-form" novalidate>
+                <!-- Description Input -->
+                 <label for="description">Description</label>
+                 <input type="text" id="description" name="description" required />
+                 <small class="error" id="desc-error"></small>
+
+                 <!-- Amount Input -->
+                  <label for="amount">Amount (USD)</label>
+                  <input type="number" id="amount" name="amount" step="0.01" required />
+                  <small class="error" id="desc-error"></small>
+
+                  <!-- Category Dropdown -->
+                   <label for="Category">Category</label>
+                   <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="fees">Fees</option>
+                    <option value="books">Books</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="trip">Trip</option>
+                    <option value="other">Other</option>
+                   </select>
+                   <small class="error" id="desc-error"></small>
+
+                   <!-- Date Input -->
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required />
+                    <small class="error" id="desc-error"></small>
+
+                    <!-- Submit Buttom -->
+                     <div role="status" aria-live="polite" id="form-status"></div>
+             </form>
         </section>
 
+        <!-- Setting Section -->
         <section id="settings" aria-labelledby="settings-heading">
             <h2 id="settings-heading">Settings</h2>
             <!-- Currency settings, import/export -->
         </section>
 
+        <!-- About Section -->
         <section id="about" aria-labelledby="about-heading">
             <h2 id="about-heading">About</h2>
             <p> This app helps students to track their pendings. Built by Nyiramanzi Igihozo</p>
