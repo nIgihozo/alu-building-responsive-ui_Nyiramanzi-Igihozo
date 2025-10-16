@@ -1,96 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Finance Tracker</title>
-    <link rel="stylesheet" href="style/main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Finance Tracker</title>
+  <link rel="stylesheet" href="style/main.css" />
 </head>
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
-    <header>
-        <h1>Student Finance Tracker</h1>
-        <nav>
-            <ul>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#records">Records</a></li>
-                <li><a href="#add">Add Transaction</a></li>
-                <li><a href="#settings">Settings</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Skip link for keyboard users -->
+  <a href="#main" class="skip-link">Skip to content</a>
 
-    <main id="main">
-        <!-- Dashbord Section -->
-        <section id="dashboard" aria-labelledby="dashboard-heading">
-            <h2 id="dashboard-heading">Dashboard</h2>
-            <!-- Stats will go here -->
-        </section>
+  <header>
+    <h1>Student Finance Tracker</h1>
+    <nav>
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#records">Records</a></li>
+        <li><a href="#add">Add Transaction</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <!-- Transaction Section -->
-        <section id="records" aria-labelledby="records-heading">
-            <h2 id="records-heading">Transactions</h2>
-            <!-- Table or cards will go here -->
-        </section>
+  <main id="main">
+    <!-- Home Section -->
+<section id="home" aria-labelledby="home-heading">
+  <h2 id="home-heading">Welcome to Student Finance Tracker</h2>
+  <p>Track your spending, manage your budget, and stay in control.</p>
+  <p><strong>Get started by selecting a section above.</strong></p>
+</section>
+    <!-- Dashboard Section -->
+    <section id="dashboard" aria-labelledby="dashboard-heading">
+      <h2 id="dashboard-heading">Dashboard</h2>
+      <div id="stats">
+        <!-- Stats will be injected here via JS -->
+      </div>
+    </section>
 
-        <!-- This section is for Adding Transactions -->
-        <section id="add" aria-labelledby="add-heading">
-            <h2 id="add-heading">Add Transaction</h2>
-            <!-- Transaction Form -->
-             <form id="transaction-form" novalidate>
-                <!-- Description Input -->
-                 <label for="description">Description</label>
-                 <input type="text" id="description" name="description" required />
-                 <small class="error" id="desc-error"></small>
+    <!-- Records Section -->
+    <section id="records" aria-labelledby="records-heading">
+      <h2 id="records-heading">Transactions</h2>
+      <div id="records-list">
+        <!-- Table or cards will be rendered here via JS -->
+      </div>
+    </section>
 
-                 <!-- Amount Input -->
-                  <label for="amount">Amount (USD)</label>
-                  <input type="number" id="amount" name="amount" step="0.01" required />
-                  <small class="error" id="desc-error"></small>
+    <!-- Add Transaction Section -->
+    <section id="add" aria-labelledby="add-heading">
+      <h2 id="add-heading">Add Transaction</h2>
+      <form id="transaction-form" novalidate>
+        <!-- Description -->
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" required />
+        <small class="error" id="description-error"></small>
 
-                  <!-- Category Dropdown -->
-                   <label for="Category">Category</label>
-                   <select id="category" name="category" required>
-                    <option value="">Select a category</option>
-                    <option value="fees">Fees</option>
-                    <option value="books">Books</option>
-                    <option value="food">Food</option>
-                    <option value="transport">Transport</option>
-                    <option value="trip">Trip</option>
-                    <option value="other">Other</option>
-                   </select>
-                   <small class="error" id="desc-error"></small>
+        <!-- Amount -->
+        <label for="amount">Amount (USD)</label>
+        <input type="number" id="amount" name="amount" step="0.01" required />
+        <small class="error" id="amount-error"></small>
 
-                   <!-- Date Input -->
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required />
-                    <small class="error" id="desc-error"></small>
+        <!-- Category -->
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="">Select a category</option>
+          <option value="fees">Fees</option>
+          <option value="books">Books</option>
+          <option value="food">Food</option>
+          <option value="transport">Transport</option>
+          <option value="trip">Trip</option>
+          <option value="other">Other</option>
+        </select>
+        <small class="error" id="category-error"></small>
 
-                    <!-- Submit Buttom -->
-                     <div role="status" aria-live="polite" id="form-status"></div>
-             </form>
-        </section>
+        <!-- Date -->
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required />
+        <small class="error" id="date-error"></small>
 
-        <!-- Setting Section -->
-        <section id="settings" aria-labelledby="settings-heading">
-            <h2 id="settings-heading">Settings</h2>
-            <!-- Currency settings, import/export -->
-        </section>
+        <!-- Status Message -->
+        <div role="status" aria-live="polite" id="form-status"></div>
 
-        <!-- About Section -->
-        <section id="about" aria-labelledby="about-heading">
-            <h2 id="about-heading">About</h2>
-            <p> This app helps students to track their pendings. Built by Nyiramanzi Igihozo</p>
-            <p>GitHub: <a href="https://github.com/nIgihozo">nIgihozo</a></p>
-            <p>Email: <a href="mailto:n.igihozo@alustudent.com">n.igihozo@alustudent.com</a></p>
-        </section>
-    </main>
+        <!-- Submit Button -->
+        <button type="submit">Add Transaction</button>
+      </form>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Student Finance Tracker</p>
-    </footer>
-    <script type="module" src="scripts/ui.js"></script>
-    
+    <!-- Settings Section -->
+    <section id="settings" aria-labelledby="settings-heading">
+      <h2 id="settings-heading">Settings</h2>
+      <h3>Currency Settings</h3>
+<label for="currency">Currency:</label>
+<select id="currency">
+  <option value="USD">USD</option>
+  <option value="RWF">RWF</option>
+  <option value="EUR">EUR</option>
+</select>
+
+
+<label for="rate">Manual Exchange Rate (to USD):</label>
+<input type="number" id="rate" step="0.01" placeholder="e.g. 1200" />
+
+<h3>Monthly Budget Cap</h3>
+<label for="budget">Budget Cap (USD):</label>
+<input type="number" id="budget" step="0.01" placeholder="e.g. 500" /> 
+
+<h3>Actions</h3>
+<button id="save-settings">Save Settings</button>
+<button id="reset-settings">Reset to Defaults</button>
+
+<h3>Theme</h3>
+<label>
+  <input type="checkbox" id="dark-toggle" />
+  Enable Dark Mode
+</label>
+
+<h3> Data Management</h3>
+<button id="export-btn">Export to JSON</button>
+<input type="file" id="import-file" accept=".json" />
+<div role="status" aria-live="polite" id="import-status"></div>
+
+    </section>
+
+    <!--  About Section -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <p>This app helps students track their spending.</p>
+      <p>Built by Nyiramanzi Igihozo</p>
+      <p>
+        GitHub: <a href="https://github.com/nIgihozo">nIgihozo</a><br />
+        Email: <a href="mailto:n.igihozo@alustudent.com">n.igihozo@alustudent.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Student Finance Tracker</p>
+  </footer>
+
+  <!-- Main UI logic -->
+  <script type="module" src="scripts/ui.js"></script>
 </body>
 </html>
