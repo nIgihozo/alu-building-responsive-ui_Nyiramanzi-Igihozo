@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Regex Tests</title>
+</head>
+<body>
+  <h1>Regex Validation Tests</h1>
+  <script type="module">
+    import { patterns } from "./scripts/validators.js";
+
+    const tests = {
+      description: ["Lunch", "  bad", "ok  ", "double  space"],
+      amount: ["12.50", "0", "100.999", "abc"],
+      date: ["2025-09-29", "2025-13-01", "2025-02-30"],
+      category: ["Food", "Books & Supplies", "transport-ride", "bad@tag"]
+    };
+
+    for (let key in tests) {
+      console.log(`\nTesting ${key}`);
+      tests[key].forEach(val => {
+        const result = patterns[key].test(val);
+        console.log(`${val}: ${result}`);
+      });
+    }
+  </script>
+</body>
+</html>
