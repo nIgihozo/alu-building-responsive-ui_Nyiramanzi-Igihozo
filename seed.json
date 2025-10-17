@@ -1,20 +1,47 @@
 [
   {
     "id": "txn_1",
-    "description": "Lunch at cafeteria",
-    "amount": 12.5,
-    "category": "Food",
-    "date": "2025-09-25",
-    "createdAt": "2025-09-25T12:00:00Z",
-    "updatedAt": "2025-09-25T12:00:00Z"
+    "description": "Textbook purchase",
+    "amount": 85.50,
+    "category": "Books",
+    "date": "2024-01-15",
+    "createdAt": "2024-01-15T10:30:00.000Z",
+    "updatedAt": "2024-01-15T10:30:00.000Z"
   },
   {
     "id": "txn_2",
-    "description": "Chemistry textbook",
-    "amount": 89.99,
-    "category": "Books",
-    "date": "2025-09-23",
-    "createdAt": "2025-09-23T10:00:00Z",
-    "updatedAt": "2025-09-23T10:00:00Z"
+    "description": "Lunch at campus cafe",
+    "amount": 12.75,
+    "category": "Food",
+    "date": "2024-01-16",
+    "createdAt": "2024-01-16T12:15:00.000Z",
+    "updatedAt": "2024-01-16T12:15:00.000Z"
+  },
+  {
+    "id": "txn_3",
+    "description": "Bus pass monthly",
+    "amount": 45.00,
+    "category": "Transport",
+    "date": "2024-01-17",
+    "createdAt": "2024-01-17T08:00:00.000Z",
+    "updatedAt": "2024-01-17T08:00:00.000Z"
+  },
+  {
+    "id": "txn_4",
+    "description": "Movie night",
+    "amount": 18.50,
+    "category": "Entertainment",
+    "date": "2024-01-18",
+    "createdAt": "2024-01-18T20:45:00.000Z",
+    "updatedAt": "2024-01-18T20:45:00.000Z"
+  },
+  {
+    "id": "txn_5",
+    "description": "Lab fees",
+    "amount": 25.00,
+    "category": "Fees",
+    "date": "2024-01-19",
+    "createdAt": "2024-01-19T14:20:00.000Z",
+    "updatedAt": "2024-01-19T14:20:00.000Z"
   }
 ]
