@@ -1,144 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Finance Tracker</title>
-  <link rel="stylesheet" href="style/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Tracker</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <!-- Skip link for keyboard users -->
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <header>
-    <h1>Student Finance Tracker</h1>
-    <nav>
-      <ul>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#records">Records</a></li>
-        <li><a href="#add">Add Transaction</a></li>
-        <li><a href="#settings">Settings</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main">
-    <!-- Home Section -->
-<section id="home" aria-labelledby="home-heading">
-  <h2 id="home-heading">Welcome to Student Finance Tracker</h2>
-  <p>Track your spending, manage your budget, and stay in control.</p>
-  <p><strong>Get started by selecting a section above.</strong></p>
-</section>
-    <!-- Dashboard Section -->
-    <section id="dashboard" aria-labelledby="dashboard-heading">
-      <h2 id="dashboard-heading">Dashboard</h2>
-      <div id="stats">
-        <!-- Stats will be injected here via JS -->
-      </div>
-    </section>
-
-    <!-- Records Section -->
-    <section id="records" aria-labelledby="records-heading">
-      <h2 id="records-heading">Transactions</h2>
-      <div id="records-list">
-        <!-- Table or cards will be rendered here via JS -->
-      </div>
-    </section>
-
-    <!-- Add Transaction Section -->
-    <section id="add" aria-labelledby="add-heading">
-      <h2 id="add-heading">Add Transaction</h2>
-      <form id="transaction-form" novalidate>
-        <!-- Description -->
-        <label for="description">Description</label>
-        <input type="text" id="description" name="description" required />
-        <small class="error" id="description-error"></small>
-
-        <!-- Amount -->
-        <label for="amount">Amount (USD)</label>
-        <input type="number" id="amount" name="amount" step="0.01" required />
-        <small class="error" id="amount-error"></small>
-
-        <!-- Category -->
-        <label for="category">Category</label>
-        <select id="category" name="category" required>
-          <option value="">Select a category</option>
-          <option value="fees">Fees</option>
-          <option value="books">Books</option>
-          <option value="food">Food</option>
-          <option value="transport">Transport</option>
-          <option value="trip">Trip</option>
-          <option value="other">Other</option>
-        </select>
-        <small class="error" id="category-error"></small>
-
-        <!-- Date -->
-        <label for="date">Date</label>
-        <input type="date" id="date" name="date" required />
-        <small class="error" id="date-error"></small>
-
-        <!-- Status Message -->
-        <div role="status" aria-live="polite" id="form-status"></div>
-
-        <!-- Submit Button -->
-        <button type="submit">Add Transaction</button>
-      </form>
-    </section>
-
-    <!-- Settings Section -->
-    <section id="settings" aria-labelledby="settings-heading">
-      <h2 id="settings-heading">Settings</h2>
-      <h3>Currency Settings</h3>
-<label for="currency">Currency:</label>
-<select id="currency">
-  <option value="USD">USD</option>
-  <option value="RWF">RWF</option>
-  <option value="EUR">EUR</option>
-</select>
-
-
-<label for="rate">Manual Exchange Rate (to USD):</label>
-<input type="number" id="rate" step="0.01" placeholder="e.g. 1200" />
-
-<h3>Monthly Budget Cap</h3>
-<label for="budget">Budget Cap (USD):</label>
-<input type="number" id="budget" step="0.01" placeholder="e.g. 500" /> 
-
-<h3>Actions</h3>
-<button id="save-settings">Save Settings</button>
-<button id="reset-settings">Reset to Defaults</button>
-
-<h3>Theme</h3>
-<label>
-  <input type="checkbox" id="dark-toggle" />
-  Enable Dark Mode
-</label>
-
-<h3> Data Management</h3>
-<button id="export-btn">Export to JSON</button>
-<input type="file" id="import-file" accept=".json" />
-<div role="status" aria-live="polite" id="import-status"></div>
-
-    </section>
-
-    <!--  About Section -->
-    <section id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <p>This app helps students track their spending.</p>
-      <p>Built by Nyiramanzi Igihozo</p>
-      <p>
-        GitHub: <a href="https://github.com/nIgihozo">nIgihozo</a><br />
-        Email: <a href="mailto:n.igihozo@alustudent.com">n.igihozo@alustudent.com</a>
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Student Finance Tracker</p>
-  </footer>
-
-  <!-- Main UI logic -->
-  <script type="module" src="scripts/ui.js"></script>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                 <span>Student Finance Tracker</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active" data-page="dashboard">Dashboard</a></li>
+                    <li><a href="#records" class="nav-link" data-page="records">Records</a></li>
+                    <li><a href="#add-record" class="nav-link" data-page="add-record">Add Record</a></li>
+                    <li><a href="#settings" class="nav-link" data-page="settings">Settings</a></li>
+                    <li><a href="#about" class="nav-link" data-page="about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <!-- Dashboard Page -->
+        <section id="dashboard" class="page active">
+            <h1>Dashboard</h1>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-label">Total Records</div>
+                    <div class="stat-value" id="total-records">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Spent</div>
+                    <div class="stat-value" id="total-spent">$0.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Top Category</div>
+                    <div class="stat-value" id="top-category">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Monthly Cap</div>
+                    <div class="stat-value" id="monthly-cap">$500.00</div>
+                    <div class="cap-status cap-ok" id="cap-status">
+                        Under budget
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <h2 class="chart-title">Spending Trend (Last 7 Days)</h2>
+                <div class="chart-bars" id="spending-chart">
+                    <!-- Chart bars will be generated by JS -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Records Page -->
+        <section id="records" class="page">
+            <h1>Transaction Records</h1>
+            
+            <div class="controls">
+                <div class="search-container">
+                    <div class="search-input">
+                        <input type="text" id="search-input" placeholder="Search transactions (regex supported)">
+                        <button id="clear-search" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+                <div class="sort-controls">
+                    <select id="sort-by">
+                        <option value="date-desc">Date (Newest)</option>
+                        <option value="date-asc">Date (Oldest)</option>
+                        <option value="amount-desc">Amount (High to Low)</option>
+                        <option value="amount-asc">Amount (Low to High)</option>
+                        <option value="description-asc">Description (A-Z)</option>
+                        <option value="description-desc">Description (Z-A)</option>
+                        <option value="category-asc">Category (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="records-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records-body">
+                        <!-- Records will be populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="no-records" class="no-records">
+                <p>No transactions found. Add your first transaction!</p>
+            </div>
+        </section>
+        
+        <!-- Add/Edit Record Page -->
+        <section id="add-record" class="page">
+            <h1 id="form-title">Add New Transaction</h1>
+            
+            <form id="record-form" class="form-container">
+                <input type="hidden" id="record-id">
+                
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <input type="text" id="description" required>
+                    <div class="error-message" id="description-error">Description is required and cannot have leading/trailing spaces</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="amount">Amount ($)*</label>
+                    <input type="text" id="amount" required>
+                    <div class="error-message" id="amount-error">Enter a valid amount (e.g., 12.50)</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required>
+                        <option value="">Select a category</option>
+                        <option value="Food">Food</option>
+                        <option value="Books">Books</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Fees">Fees</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="error-message" id="category-error">Please select a category</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Date *</label>
+                    <input type="date" id="date" required>
+                    <div class="error-message" id="date-error">Enter a valid date (YYYY-MM-DD)</div>
+                </div>
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary">Save Transaction</button>
+                    <button type="button" id="cancel-form" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Settings Page -->
+        <section id="settings" class="page">
+            <h1>Settings</h1>
+            
+            <div class="form-container">
+                <h2>Monthly Budget Cap</h2>
+                <div class="form-group">
+                    <label for="budget-cap">Monthly Spending Cap ($)</label>
+                    <input type="text" id="budget-cap" value="500.00">
+                    <div class="error-message" id="cap-error">Enter a valid amount</div>
+                </div>
+                
+                <h2>Currency Settings</h2>
+                <div class="settings-grid">
+                    <div class="form-group">
+                        <label for="base-currency">Base Currency</label>
+                        <select id="base-currency">
+                            <option value="USD">USD ($)</option>
+                            <option value="EUR">EUR (€)</option>
+                            <option value="GBP">GBP (£)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exchange-rate">Exchange Rate (to USD)</label>
+                        <input type="text" id="exchange-rate" value="1.00">
+                        <div class="error-message" id="rate-error">Enter a valid exchange rate</div>
+                    </div>
+                </div>
+                
+                <div class="btn-group">
+                    <button id="save-settings" class="btn btn-primary">Save Settings</button>
+                    <button id="reset-settings" class="btn btn-secondary">Reset to Defaults</button>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <h2>Data Management</h2>
+                <div class="btn-group">
+                    <button id="export-data" class="btn btn-primary">Export to JSON</button>
+                    <button id="import-data" class="btn btn-secondary">Import from JSON</button>
+                </div>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+        </section>
+        
+        <!-- About Page -->
+        <section id="about" class="page">
+            <h1>About Student Finance Tracker</h1>
+            <p>This application helps students track their finances, manage budgets, and gain insights into their spending habits.</p>
+            
+            <h2>Key Features</h2>
+            <ul>
+                <li>Track expenses with categories and descriptions</li>
+                <li>Set monthly spending caps and receive alerts</li>
+                <li>Powerful regex-based search functionality</li>
+                <li>Export and import your financial data</li>
+                <li>Fully responsive design for all devices</li>
+            </ul>
+            
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span></span>
+                    <span>n.igihozo@alustudent.com</span>
+                </div>
+                <div class="contact-item">
+                     <span><a href="https://github.com/nIgihozo/alu-building-responsive-ui_Nyiramanzi-Igihozo/tree/main" target="_blank">GitHub Repository</a></span>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ARIA Live Region for Accessibility -->
+    <div class="aria-live" aria-live="polite" id="aria-live-region"></div>
+    
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/state.js"></script>
+    <script src="scripts/validators.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/ui.js"></script>
 </body>
 </html>
