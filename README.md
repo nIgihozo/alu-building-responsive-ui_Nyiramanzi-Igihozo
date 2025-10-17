@@ -23,19 +23,19 @@ http://127.0.0.1:5500/index.html
 Start tracking your finances.
 
 File Structure
-index.html — Main layout and section structure
+- index.html — Main layout and section structure
 
-style/main.css — Styling and responsive design
+- style/main.css — Styling and responsive design
 
-scripts/ui.js — UI logic and event handling
+- scripts/ui.js — UI logic and event handling
 
-scripts/state.js — Transaction state management
+- scripts/state.js — Transaction state management
 
-scripts/storage.js — LocalStorage persistence
+- scripts/storage.js — LocalStorage persistence
 
-scripts/validators.js — Form validation logic
+- scripts/validators.js — Form validation logic
 
-seed.json — Sample transaction data for testing
+- seed.json — Sample transaction data for testing
 
 Author
 - Created by Nyiramanzi Igihozo 
