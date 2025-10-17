@@ -1,6 +1,5 @@
 # BUILDING RESPONSIVE UI PROJECT
 # STUDENT FINANCE TRACKER
-# Student Finance Tracker
 
 Student Finance Tracker is a responsive web application designed to help students manage their personal finances. It allows users to track transactions, monitor spending habits, set budget goals, and customize currency settings in a simple, intuitive interface.
 
@@ -17,7 +16,7 @@ Student Finance Tracker is a responsive web application designed to help student
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/nIgihozo/student-finance-tracker.git
+   git clone https://github.com/nIgihozo/alu-building-ui_Nyiramanzi-Igihozo
 2. Open index.html in your browser:
 http://127.0.0.1:5500/index.html
 
@@ -39,7 +38,7 @@ scripts/validators.js — Form validation logic
 seed.json — Sample transaction data for testing
 
 Author
-Created by Nyiramanzi Igihozo 
-Email: n.igihozo@alustudent.com 
-GitHub: github.com/nIgihozo
+- Created by Nyiramanzi Igihozo 
+- Email: n.igihozo@alustudent.com 
+- GitHub: github.com/nIgihozo
 
